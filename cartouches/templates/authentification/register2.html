@@ -1,0 +1,22 @@
+{% extends "cartouches/base2.html" %}
+
+{% block liste %}
+<h1>Ajouter un utilisateur</h1>
+<div class="container mt-5">
+    <h2>S'inscrire</h2>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        {% if form.errors %}
+            <ul>
+                {% for field, errors in form.errors.items %}
+                    <li>{{ field }}: {{ errors|join:", " }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        <button type="submit">S'inscrire</button>
+    </form>
+    
+    {% comment %} <p>Vous n'avez pas encore de compte? <a href="{% url 'register_name' %}">S'inscrire</a></p> {% endcomment %}
+</div>
+{% endblock %}

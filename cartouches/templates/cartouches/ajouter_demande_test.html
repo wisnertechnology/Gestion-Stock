@@ -1,0 +1,13 @@
+{% extends "cartouches/base2.html" %}
+
+{% block liste%}
+    <h1>Ajouter une Demande</h1>
+    <div class="formul">
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Enregistrer</button>
+        </form>
+        <a href="{% url 'liste_cartouches' %}">Retour à la Liste des Cartouches</a>
+    </div>
+{% endblock %}

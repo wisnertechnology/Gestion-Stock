@@ -1,0 +1,16 @@
+{% extends "cartouches/base2.html" %}
+
+{% block liste%}
+<div class="container mt-4">
+    <div class="formul">
+        <h1>Modifier une Cartouche</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-warning">Modifier</button>
+        </form>
+        <a href="{% url 'list_cartouches' %}" class="btn btn-primary mt-3">Retour à la Liste des Cartouches</a>
+    </div>
+</div>
+{% endblock%}
+

@@ -1,0 +1,26 @@
+{% extends "cartouches/base2.html" %}
+
+{% block liste%}
+    <h1>Liste des Cartouches</h1>
+        <table border="1">
+            <tr>
+                <th>Nom</th>
+                <th>Stock Actuel</th>
+                <th>Date de Dernière Commande</th>
+            </tr>
+            {% for cartouche in cartouches %}
+            <tr>
+                <td>{{ cartouche.nom }}</td>
+                <td>{{ cartouche.stock_actuel }}</td>
+                <td>{{ cartouche.date_derniere_commande }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <a href="{% url 'ajouter_cartouche' %}">Ajouter un modele de cartouche</a> |
+        <a href="{% url 'ajouter_commande' %}">Ajouter une Commande</a> |
+        <a href="{% url 'ajouter_demande' %}">Ajouter une Demande</a> |
+        <a href="{% url 'ajouter_distribution' %}">Ajouter une Distribution</a> |
+        <a href="{% url 'generer_rapport' %}">Générer le Rapport</a>
+
+{% endblock%}
+    

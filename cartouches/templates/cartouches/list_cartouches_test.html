@@ -1,0 +1,31 @@
+{% extends "cartouches/base2.html" %}
+
+{% block liste%}
+<div class="container mt-4">
+    <h1>Liste des Cartouches</h1>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Stock Actuel</th>
+                <th>Date de Dernière Commande</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for cartouche in cartouches %}
+            <tr>
+                <td>{{ cartouche.nom }}</td>
+                <td>{{ cartouche.stock_actuel }}</td>
+                <td>{{ cartouche.date_derniere_commande }}</td>
+                <td>
+                    <a href="{% url 'detail_cartouche' cartouche.pk %}" class="btn btn-info btn-sm">Voir</a>
+                    <a href="{% url 'update_cartouche' cartouche.pk %}" class="btn btn-warning btn-sm">Modifier</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{% url 'ajouter_cartouche' %}" class="btn btn-success">Ajouter une Cartouche</a>
+</div>
+{% endblock %}

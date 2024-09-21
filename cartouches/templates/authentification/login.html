@@ -1,0 +1,12 @@
+{% extends "cartouches/index.html" %}
+
+{% block content%}
+  <h1>Connexion utilisateur</h1>
+  <div class="formul">
+      <form method="post">
+          {% csrf_token %}
+          {{ form.as_p }}  <!-- Utilisation des champs du formulaire Django -->
+          <button type="submit">Se connecter</button>
+      </form>
+  </div>
+{% endblock%}

@@ -1,0 +1,14 @@
+{% extends "cartouches/base2.html" %}
+
+{% block liste%}
+    <h1>Détails de la Cartouche</h1>
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">{{ cartouche.nom }}</h5>
+            <p class="card-text"><strong>Stock actuel :</strong> {{ cartouche.stock_actuel }}</p>
+            <p class="card-text"><strong>Date de dernière commande :</strong> {{ cartouche.date_derniere_commande }}</p>
+            <a href="{% url 'update_cartouche' cartouche.pk %}" class="btn btn-warning">Modifier</a>
+            <a href="{% url 'list_cartouches' %}" class="btn btn-primary">Retour à la Liste des Cartouches</a>
+        </div>
+    </div>
+{% endblock %}
